@@ -1,11 +1,11 @@
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "~> 19.0"
+  version = "~> 19.20.0"
 
   cluster_name    = "my-cluster"
   cluster_version = "1.27"
 
-  cluster_endpoint_public_access  = true
+  cluster_endpoint_public_access = true
 
   cluster_addons = {
     coredns = {
@@ -32,9 +32,9 @@ module "eks" {
 
     green = {
       use_custom_launch_template = false
-      min_size     = 1
-      max_size     = 10
-      desired_size = 1
+      min_size                   = 1
+      max_size                   = 10
+      desired_size               = 1
 
       instance_types = ["t3.large"]
       capacity_type  = "SPOT"
