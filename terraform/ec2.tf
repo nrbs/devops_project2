@@ -25,7 +25,7 @@ resource "aws_instance" "eks_management_instance" {
 
               # AWS Configure
               # aws configure
-              # aws configure set aws_access_key_id ${var.aws_access_key}
+              # aws configure set aws_access_key_id DOLLAR{var.aws_access_key}
 
               # Install kubectl
               curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
