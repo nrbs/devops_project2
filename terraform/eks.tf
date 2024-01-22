@@ -3,7 +3,7 @@ module "eks" {
   version = "~> 19.20.0"
 
   cluster_name    = "my-cluster"
-  cluster_version = "1.27"
+  cluster_version = "1.28"
 
   cluster_endpoint_public_access = true
 
@@ -58,7 +58,7 @@ module "eks" {
 
   aws_auth_roles = [
     {
-      rolearn  = "arn:aws:iam::594182463744:role/role1"
+      rolearn  = "arn:aws:iam::083849672660:role/role1"
       username = "role1"
       groups   = ["system:masters"]
     },
@@ -66,21 +66,26 @@ module "eks" {
 
   aws_auth_users = [
     {
-      userarn  = "arn:aws:iam::594182463744:user/user1"
-      username = "user1"
+      userarn  = "arn:aws:iam::083849672660:user/protouser"
+      username = "protouser"
       groups   = ["system:masters"]
-    },
-    {
-      userarn  = "arn:aws:iam::594182463744:user/user2"
-      username = "user2"
-      groups   = ["system:masters"]
-    },
+    }
   ]
 
   aws_auth_accounts = [
-    "594182463744",
-    "888888888888",
+    "083849672660"
   ]
+
+  cluster_security_group_additional_rules = {
+    ec2_ingress = {
+      description              = "Allow EC2 Ingress"
+      from_port                = 443
+      to_port                  = 443
+      type                     = "ingress"
+      protocol                 = "tcp"
+      source_security_group_id = aws_security_group.eks_management_sg.id
+    }
+  }
 
   tags = {
     Environment = "dev"
