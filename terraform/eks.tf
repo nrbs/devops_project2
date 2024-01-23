@@ -78,7 +78,7 @@ module "eks" {
 
   cluster_security_group_additional_rules = {
     ec2_ingress = {
-      description              = "Allow EC2 Ingress"
+      description              = "Allow connections from EC2 to EKS cluster"
       from_port                = 443
       to_port                  = 443
       type                     = "ingress"

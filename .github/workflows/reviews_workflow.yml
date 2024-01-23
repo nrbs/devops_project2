@@ -8,7 +8,7 @@ on:
       - 'bookinfo_app/src/reviews/**'
 
 env:
-  ECR_REGISTRY: 654328202400.dkr.ecr.us-east-1.amazonaws.com
+  ECR_REGISTRY: 083849672660.dkr.ecr.us-east-1.amazonaws.com
   ECR_REPOSITORY: my-ecr-repo
 
 jobs:
