@@ -11,7 +11,6 @@ env:
   ECR_REGISTRY: 083849672660.dkr.ecr.us-east-1.amazonaws.com
   ECR_REPOSITORY: my-ecr-repo
 
-
 jobs:
   build_and_push_image:
     runs-on: ubuntu-latest

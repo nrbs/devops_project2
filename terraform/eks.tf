@@ -18,9 +18,9 @@ module "eks" {
       most_recent = true
     }
   }
-
-  vpc_id                   = module.vpc.vpc_id
+  
   subnet_ids               = module.vpc.private_subnets
+  vpc_id                   = module.vpc.vpc_id
   control_plane_subnet_ids = module.vpc.public_subnets
 
   # EKS Managed Node Group(s)
@@ -92,3 +92,4 @@ module "eks" {
     Terraform   = "true"
   }
 }
+
